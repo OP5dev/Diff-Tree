@@ -1,0 +1,37 @@
+---
+name: Git Diff-Tree for Changed Files or Directories
+author: Rishav Dhar (@rdhar)
+description: Git diff-tree for a list of changed files or directories between commits for GitHub Action event triggers.
+
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+        # Check for required tools.
+        which gh > /dev/null 2>&1 || { echo "Please install GitHub CLI before running this action as it is required for interacting with GitHub."; exit 1; }
+        which jq > /dev/null 2>&1 || { echo "Please install jq before running this action as it is required for processing JSON outputs."; exit 1; }
+        if [[ "$GITHUB_SERVER_URL" != "https://github.com" ]]; then echo GH_HOST=$(echo "$GITHUB_SERVER_URL" | sed 's/.*:\/\///') >> "$GITHUB_ENV"; fi
+
+    - shell: bash
+      id: approvals
+      env:
+        GH_API: X-GitHub-Api-Version:2022-11-28
+        GH_TOKEN: ${{ inputs.token }}
+      run: |
+        # Placeholder
+        exit 0
+
+outputs:
+  placeholder:
+    description: "placeholder."
+    value: placeholder
+
+inputs:
+  token:
+    required: true
+    description: "GitHub access token with 'read:org' scope (e.g., secrets.CI_PAT)."
+
+branding:
+  color: green
+  icon: user-check
