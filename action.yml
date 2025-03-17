@@ -37,9 +37,11 @@ inputs:
   format:
     required: false
     description: "Format output as: 'raw', 'json', or 'matrix'."
+    default: "raw"
   token:
     required: true
     description: "GitHub access token with 'read:org' scope (e.g., secrets.CI_PAT)."
+    default: ${{ secrets.GITHUB_TOKEN }}
 
 branding:
   color: gray-dark
