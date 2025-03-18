@@ -22,14 +22,3 @@ jobs:
       - name: Changed diff-tree
         id: changed
         uses: ./
-        with:
-          working-directory: tests/${{ matrix.test }}
-
-      - name: Tag release version
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GH_TAG: ${{ github.event.release.tag_name}}
-        run: |
-          version=${GH_TAG%%.*}
-          gh api /repos/${{ github.repository }}/git/refs/tags/${version} --method PATCH --silent --field sha="${GITHUB_SHA}" --field force=true || \
-            gh api /repos/${{ github.repository }}/git/refs --method POST --silent --field sha="${GITHUB_SHA}" --field ref="refs/tags/${version}"

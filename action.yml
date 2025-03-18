@@ -31,9 +31,11 @@ inputs:
   source_ref:
     required: false
     description: "Source branch or commit SHA to compare from."
+    default: ""
   target_ref:
     required: false
     description: "Target branch or commit SHA to compare against."
+    default: ""
   format:
     required: false
     description: "Format output as: 'raw', 'json', or 'matrix'."
