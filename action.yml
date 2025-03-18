@@ -1,7 +1,7 @@
 ---
-name: Git Diff-Tree for Changed Files or Directories
+name: Changed Diff-Tree for Files or Directories
 author: Rishav Dhar (@rdhar)
-description: Git diff-tree for a list of changed files or directories between commits for GitHub Action event triggers.
+description: Changed diff-tree for a list of changed files or directories between branches with GitHub Action event triggers.
 
 runs:
   using: composite
@@ -28,10 +28,23 @@ outputs:
     value: placeholder
 
 inputs:
+  source_ref:
+    default: ""
+    description: "Source branch or commit SHA to compare from."
+    required: false
+  target_ref:
+    default: ""
+    description: "Target branch or commit SHA to compare against."
+    required: false
+  format:
+    default: "raw"
+    description: "Format output as: 'raw', 'json', or 'matrix'."
+    required: false
   token:
-    required: true
+    default: ${{ github.token }}
     description: "GitHub access token with 'read:org' scope (e.g., secrets.CI_PAT)."
+    required: true
 
 branding:
-  color: green
-  icon: user-check
+  color: gray-dark
+  icon: file-plus

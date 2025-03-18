@@ -1,0 +1,24 @@
+---
+name: Test CI
+
+on:
+  pull_request:
+    paths: [.github/workflows/test_ci.yaml, action.yml]
+
+jobs:
+  ci:
+    runs-on: ubuntu-24.04
+
+    permissions:
+      contents: read # Required to checkout repository.
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Changed diff-tree
+        id: changed
+        uses: ./
