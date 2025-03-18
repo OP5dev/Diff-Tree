@@ -1,7 +1,7 @@
 ---
-name: Git Diff-Tree for Changed Files or Directories
+name: Changed Diff-Tree for Files or Directories
 author: Rishav Dhar (@rdhar)
-description: Git diff-tree for a list of changed files or directories between branches with GitHub Action event triggers.
+description: Changed diff-tree for a list of changed files or directories between branches with GitHub Action event triggers.
 
 runs:
   using: composite

@@ -5,7 +5,7 @@
 
 # Changed Diff-Tree ±
 
-Git diff-tree for a list of changed files or directories between branches with GitHub Action event triggers.
+Changed diff-tree for a list of changed files or directories between branches with GitHub Action event triggers
 
 TODO: https://github.com/orgs/community/discussions/25950
 
